@@ -16,6 +16,10 @@ h1 {
 }
 
 main {
+  .error-header {
+    margin: auto;
+  }
+
   background-color: rgb(184, 203, 209);
   display: flex;
   margin: 0 auto;
@@ -23,11 +27,25 @@ main {
   align-items: center;
   height: 100%;
 
-  .main-header {
-    margin-top: 30px;
+  .main-container {
+    background-color: white;
+    margin: 20vh 5vw;
+    padding: 30px;
+    border-radius: 10px;
+    animation: jiggle 0.5s ease-in-out;
   }
+}
 
-  .error-header {
-    margin: auto;
-  }
+@keyframes jiggle {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-10px, 5px); }
+  20% { transform: translate(10px, -5px); }
+  30% { transform: translate(-10px, 5px); }
+  40% { transform: translate(10px, -5px); }
+  50% { transform: translate(-10px, 5px); }
+  60% { transform: translate(10px, -5px); }
+  70% { transform: translate(-10px, 5px); }
+  80% { transform: translate(10px, -5px); }
+  90% { transform: translate(-10px, 5px); }
+  100% { transform: translate(0, 0); }
 }
