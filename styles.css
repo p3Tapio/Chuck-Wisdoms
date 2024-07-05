@@ -16,7 +16,7 @@ h1 {
 }
 
 main {
-  background-color: rgb(192, 216, 224);
+  background-color: rgb(184, 203, 209);
   display: flex;
   margin: 0 auto;
   flex-direction: column;
