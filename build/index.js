@@ -2,7 +2,7 @@ import esbuild from "esbuild";
 import htmlMinifyPlugin from "esbuild-plugin-html-minify";
 
 await esbuild.build({
-  entryPoints: ["src/index.js", "src/index.css"],
+  entryPoints: ["src/index.js", "src/styles.css"],
   minify: true,
   outdir: "dist",
 });
