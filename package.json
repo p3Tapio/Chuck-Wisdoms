@@ -1,0 +1,11 @@
+{
+  "name": "static-site-deploy",
+  "type": "module",
+  "scripts": {
+    "build": "node build"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "esbuild-plugin-html-minify": "^1.0.0"
+  }
+}
