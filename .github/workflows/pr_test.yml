@@ -13,5 +13,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
+      - name: Install!
+        run: npm i
       - name: Build and test!
         run: npm run test
