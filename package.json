@@ -3,14 +3,13 @@
   "type": "module",
   "scripts": {
     "build": "node build",
-    "serve": "serve -s dist -l 5000",
+    "serve": "node server",
     "test": "concurrently \"npm run build\" \"npm run serve\" \"node test\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
     "esbuild": "^0.23.0",
     "esbuild-plugin-html-minify": "^1.0.0",
-    "puppeteer": "^23.1.0",
-    "serve": "^14.2.3"
+    "puppeteer": "^23.1.0"
   }
 }
