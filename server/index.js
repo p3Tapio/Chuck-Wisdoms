@@ -1,26 +1,15 @@
-import http from "http";
-import fs from "fs";
-const PORT = 5000;
+import express from "express";
 
-export function startServer() {
-  const server = http.createServer((req, res) => {
-    try {
-      res.statusCode = 200;
+const isTest = process.env.ENV === "test";
+const path = isTest ? "dist" : "src";
 
-      fs.readFile("dist/index.html", function (err, data) {
-        if (err) {
-          return console.error(err);
-        }
-        res.end(data);
-      });
-    } catch (e) {
-      console.error(e);
-    }
-  });
+export const startServer = () => {
+  const app = express();
+  app.use(express.static(path));
+  const PORT = 5000;
+  return app.listen(PORT, () => console.log(`Server listening port ${PORT}`));
+};
 
-  server.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}/`);
-  });
-
-  return server;
+if (!isTest) {
+  startServer();
 }
