@@ -11,7 +11,7 @@ import { startServer } from "../server/index.js";
 
     const innerText = await page.$eval(".main-header", (e) => e.innerText);
 
-    if (innerText !== "Hello Bucket!") {
+    if (innerText !== "Click the button for a Chuck fact!") {
       throw new Error("Failed: .main-header innerText mismatch.");
     }
     console.log("\nAll good :)\n");
