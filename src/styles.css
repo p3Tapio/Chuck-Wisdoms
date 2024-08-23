@@ -1,8 +1,9 @@
 html,
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
   height: 100%;
   width: 100%;
+  background-color: rgb(184, 203, 209);
 }
 
 body,
@@ -12,7 +13,11 @@ h1 {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 10vw;
+}
+
+button {
+  font-size: 6vw;
 }
 
 main {
@@ -20,7 +25,6 @@ main {
     margin: auto;
   }
 
-  background-color: rgb(184, 203, 209);
   display: flex;
   margin: 0 auto;
   flex-direction: column;
@@ -28,24 +32,100 @@ main {
   height: 100%;
 
   .main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
-    margin: 20vh 5vw;
+    margin: 10vh 5vw;
     padding: 30px;
     border-radius: 10px;
-    animation: jiggle 0.5s ease-in-out;
+
+    .chuck-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chuck-face {
+      width: 50vw;
+      max-width: 245px;
+      height: auto;
+      margin: 0 auto 14px;
+      animation: jiggle 0.5s ease-in-out;
+    }
+
+    .main-header {
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.1;
+      margin-bottom: 35px;
+    }
+
+    .main-button {
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      background-color: white;
+      border: 2px solid rgb(56, 56, 90);
+      border-radius: 8px;
+      padding: 7px 21px;
+    }
+
+    .speech-bubble {
+      display: none;
+      font-size: 20px;
+      line-height: 1.2;
+      position: absolute;
+      top: 100%;
+      background: white;
+      border: 2px solid black;
+      border-radius: 80px;
+      padding: 30px 40px;
+    }
+
+    .speech-bubble svg {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: -20px;
+      left: -50px;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 
 @keyframes jiggle {
-  0% { transform: translate(0, 0); }
-  10% { transform: translate(-10px, 5px); }
-  20% { transform: translate(10px, -5px); }
-  30% { transform: translate(-10px, 5px); }
-  40% { transform: translate(10px, -5px); }
-  50% { transform: translate(-10px, 5px); }
-  60% { transform: translate(10px, -5px); }
-  70% { transform: translate(-10px, 5px); }
-  80% { transform: translate(10px, -5px); }
-  90% { transform: translate(-10px, 5px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(25deg);
+  }
+  20% {
+    transform: rotate(-20deg);
+  }
+  30% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  70% {
+    transform: rotate(10deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+  90% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

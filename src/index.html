@@ -4,15 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet"  href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+
     <script defer type="text/javascript" src="index.js"></script>
   </head>
   <body>
     <main>
       <div class="main-container">
-        <h1 class="main-header">Hello Bucket!</h1>
+        <div class="chuck-container">
+          <img
+            class="chuck-face"
+            src="./assets/chuck-norris.png"
+            alt="pic of the man himself"
+          />
+          <div id="speech-bubble" class="speech-bubble">
+            <div id="chuck-wisdom"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+              <polygon points="0,14 7,0 14,14" fill="black" />
+              <polygon points="1,14 7,2 13,14" fill="white" />
+            </svg>
+          </div>
+        </div>
+        <h1 id="main-header" class="main-header">Click the button for a Chuck fact!</h1>
+        <button
+          id="main-button"
+          class="main-button"
+          onclick="getRandomChuckNorrisWisdom()"
+        >
+          This is the button
+        </button>
       </div>
-      <button onclick="popup()">click me</button>
-    </main> 
+    </main>
   </body>
 </html>
