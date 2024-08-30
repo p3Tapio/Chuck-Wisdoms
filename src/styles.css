@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: "Comic Sans MS", "Comic Neue", sans-serif;
   height: 100%;
   width: 100%;
   background-color: rgb(184, 203, 209);
@@ -38,6 +38,7 @@ main {
     background-color: white;
     margin: 10vh 5vw;
     padding: 30px;
+    max-width: 392px;
     border-radius: 10px;
 
     .chuck-container {
@@ -91,6 +92,16 @@ main {
       margin-left: auto;
       margin-right: auto;
     }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  h1 {
+    font-size: 52px;
+  }
+
+  button {
+    font-size: 32px;
   }
 }
 
