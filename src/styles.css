@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'comic-sans';
-  src: url('./assets/comic.ttf') format('truetype');
+  font-family: "comic-sans";
+  src: url("./assets/comic.ttf") format("truetype");
 }
 
 html,
 body {
-  font-family: 'comic-sans', sans-serif;;
+  font-family: "comic-sans", sans-serif;
   height: 100%;
   width: 100%;
   background-color: rgb(184, 203, 209);
@@ -22,6 +22,7 @@ h1 {
 }
 
 button {
+  cursor: pointer;
   font-size: 6vw;
 }
 
@@ -67,12 +68,21 @@ main {
       margin-bottom: 35px;
     }
 
+    .reset-button,
     .main-button {
-      font-family: 'comic-sans', sans-serif;;
+      font-family: "comic-sans", sans-serif;
       background-color: white;
       border: 2px solid rgb(56, 56, 90);
       border-radius: 8px;
       padding: 7px 21px;
+    }
+
+    .reset-button {
+      align-self: flex-end;
+      font-size: 16px;
+      padding: 7px 14px;
+      max-width: fit-content;
+      visibility: hidden;
     }
 
     .speech-bubble {
