@@ -1,10 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("reset-button").addEventListener("click", reset);
-  document
-    .getElementById("main-button")
-    .addEventListener("click", getRandomChuckNorrisWisdom);
-});
-
 const getElements = () => {
   const chuckWisdom = document.getElementById("chuck-wisdom");
   const speechBubble = document.getElementById("speech-bubble");
