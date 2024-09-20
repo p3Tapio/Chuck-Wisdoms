@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("main-button")
     .addEventListener("click", getRandomChuckNorrisWisdom);
+  const overlay = document.getElementById("overlay");
+  overlay.style.display = "none";
 });
 
 const getElements = () => {
@@ -51,7 +53,7 @@ const reset = () => {
   const { speechBubble, mainButton, mainHeader, resetButton, chuckFace } =
     getElements();
   chuckFace.offSetHeight;
-  chuckFace.style.animation = null; 
+  chuckFace.style.animation = null;
   speechBubble.style.display = "none";
   mainButton.style.visibility = "visible";
   mainHeader.style.visibility = "visible";

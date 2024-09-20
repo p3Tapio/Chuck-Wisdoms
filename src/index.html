@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      .overlay {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgb(184, 203, 209);
+        z-index: 100;
+      }
+    </style>
     <link rel="stylesheet" href="styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LeChuck</title>
+    <title>Chuck wisdoms</title>
   </head>
   <body>
+    <div id="overlay"></div>
     <main>
       <div class="main-container">
         <button id="reset-button" class="reset-button">X</button>
