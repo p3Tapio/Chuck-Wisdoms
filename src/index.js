@@ -6,33 +6,52 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const getElements = () => {
-  const chuckWisdom = document.getElementById("chuck-wisdom");
-  const speechBubble = document.getElementById("speech-bubble");
-  const mainButton = document.getElementById("main-button");
-  const mainHeader = document.getElementById("main-header");
-  const resetButton = document.getElementById("reset-button");
-  return { chuckWisdom, speechBubble, mainButton, mainHeader, resetButton };
+  return [
+    "chuck-wisdom",
+    "speech-bubble",
+    "main-button",
+    "main-header",
+    "reset-button",
+    "chuck-face",
+  ].reduce((acc, id) => {
+    const [a, b] = id.split("-");
+    const key = `${a}${b.charAt(0).toUpperCase() + b.slice(1)}`;
+    return { ...acc, [key]: document.getElementById(id) };
+  }, {});
 };
 
 const getRandomChuckNorrisWisdom = async () => {
+  const {
+    chuckWisdom,
+    speechBubble,
+    mainButton,
+    mainHeader,
+    resetButton,
+    chuckFace,
+  } = getElements();
   try {
     const response = await fetch("https://api.chucknorris.io/jokes/random");
+    if (!response.ok) throw new Error("Chuck is on vacation, try again later!");
     const json = await response.json();
-    const { chuckWisdom, speechBubble, mainButton, mainHeader, resetButton } =
-      getElements();
+
     chuckWisdom.innerText = json.value;
+    chuckFace.style.animation = "none";
     speechBubble.style.display = "inline-block";
     mainButton.style.visibility = "hidden";
     mainHeader.style.visibility = "hidden";
     resetButton.style.visibility = "visible";
   } catch (e) {
     console.error(e);
-    element.innerText = "Chuck is on vacation, try again later!";
+    chuckWisdom.innerText = e;
+    speechBubble.style.display = "inline-block";
   }
 };
 
 const reset = () => {
-  const { speechBubble, mainButton, mainHeader, resetButton } = getElements();
+  const { speechBubble, mainButton, mainHeader, resetButton, chuckFace } =
+    getElements();
+  chuckFace.offSetHeight;
+  chuckFace.style.animation = null; 
   speechBubble.style.display = "none";
   mainButton.style.visibility = "visible";
   mainHeader.style.visibility = "visible";
