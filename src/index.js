@@ -1,11 +1,11 @@
-document.addEventListener("DOMContentLoaded", function () {
+const init = () => {
   document.getElementById("reset-button").addEventListener("click", reset);
   document
     .getElementById("main-button")
     .addEventListener("click", getRandomChuckNorrisWisdom);
   const overlay = document.getElementById("overlay");
-  overlay.classList.add("hide");
-});
+  overlay.style.display = "none";
+};
 
 const getElements = () => {
   return [
@@ -59,3 +59,5 @@ const reset = () => {
   mainHeader.style.visibility = "visible";
   resetButton.style.visibility = "hidden";
 };
+
+init();
