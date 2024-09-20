@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("main-button")
     .addEventListener("click", getRandomChuckNorrisWisdom);
   const overlay = document.getElementById("overlay");
-  overlay.style.display = "none";
+  overlay.classList.add("hide");
 });
 
 const getElements = () => {
