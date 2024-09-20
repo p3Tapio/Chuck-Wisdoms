@@ -26,6 +26,10 @@ button {
   font-size: 6vw;
 }
 
+.hide {
+  display: none;
+}
+
 main {
   .error-header {
     margin: auto;
