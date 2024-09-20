@@ -45,7 +45,7 @@ main {
     margin: 10vh 5vw;
     padding: 30px;
     max-width: 392px;
-    border-radius: 10px;
+    border-radius: 15px;
 
     .chuck-container {
       position: relative;
