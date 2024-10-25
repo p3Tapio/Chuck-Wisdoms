@@ -37,7 +37,6 @@ main {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100%;
   max-height: 100%;
@@ -47,7 +46,7 @@ main {
     flex-direction: column;
     justify-content: center;
     background-color: white;
-    margin: 0 7vw;
+    margin: 5vh 7vw auto;
     padding: 30px;
     height: fit-content;
     max-width: 392px;
