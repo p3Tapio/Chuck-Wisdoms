@@ -5,12 +5,11 @@
     "cdk": "dist/bin/cdk.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "watch": "tsc -w",
-    "cdk": "cdk",
     "cdk:deploy": "npm run build && cdk deploy --profile cdk-deployer",
-    "cdk:synth": "cdk synth",
-    "diff": "cdk diff"
+    "cdk:diff": "npm run build && cdk diff --profile cdk-deployer",
+    "cdk:synth": "npm run build && cdk synth"
   },
   "devDependencies": {
     "@types/node": "22.7.9",
