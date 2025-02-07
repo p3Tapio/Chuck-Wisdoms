@@ -1,0 +1,24 @@
+{
+  "name": "cdk",
+  "version": "0.1.0",
+  "bin": {
+    "cdk": "dist/bin/cdk.js"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "watch": "tsc -w",
+    "cdk:deploy": "npm run build && cdk deploy --all --profile cdk-deployer",
+    "cdk:diff": "npm run build && cdk diff --all --profile cdk-deployer",
+    "cdk:synth": "npm run build && cdk synth"
+  },
+  "devDependencies": {
+    "@types/node": "22.7.9",
+    "aws-cdk": "2.171.1",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.3"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.171.1",
+    "constructs": "^10.0.0"
+  }
+}
