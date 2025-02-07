@@ -3,16 +3,20 @@ import * as s3 from "aws-cdk-lib/aws-s3";
 import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
 import * as origins from "aws-cdk-lib/aws-cloudfront-origins";
 import * as iam from "aws-cdk-lib/aws-iam";
+import * as lambda from "aws-cdk-lib/aws-lambda";
 
+interface ChuckStackProps extends cdk.StackProps {
+  lambdaVersionArn: string;
+}
 export class ChuckStack extends cdk.Stack {
-  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
+  constructor(scope: cdk.App, id: string, props: ChuckStackProps) {
     super(scope, id, props);
 
     const bucket = new s3.Bucket(this, "ChuckBucket", {
       bucketName: "chuckie-wisdoms",
       publicReadAccess: false,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-      removalPolicy: cdk.RemovalPolicy.RETAIN,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
     });
 
     const oac = new cloudfront.S3OriginAccessControl(this, "MyOAC", {
@@ -24,11 +28,18 @@ export class ChuckStack extends cdk.Stack {
       originAccessControl: oac,
     });
 
+    const lambdaVersion = lambda.Version.fromVersionArn(
+      this,
+      "ImportedLambdaVersion",
+      props.lambdaVersionArn
+    );
+
     const distribution = new cloudfront.Distribution(
       this,
       "ChuckieWisdomsDistribution",
       {
         comment: "CDK-Chuckie",
+        priceClass: cloudfront.PriceClass.PRICE_CLASS_100,
         defaultBehavior: {
           origin: s3Origin,
           viewerProtocolPolicy:
@@ -36,6 +47,13 @@ export class ChuckStack extends cdk.Stack {
           allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD,
           cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
           compress: true,
+          edgeLambdas: [
+            {
+              functionVersion: lambdaVersion,
+              eventType: cloudfront.LambdaEdgeEventType.VIEWER_RESPONSE,
+              includeBody: false,
+            },
+          ],
         },
         defaultRootObject: "index.html",
         errorResponses: [
