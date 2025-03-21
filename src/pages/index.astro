@@ -1,13 +1,15 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import chuckImage from "../assets/chuck-norris.png";
 import "../styles/index.css";
+import "../styles/chuck.css";
 ---
 
-<div id="overlay"></div>
-<main>
-  <div class="main-container">
-    <button id="reset-button" class="reset-button">X</button>
+<Layout>
+  <main>
+    <div class="main-container">
+      <button id="reset-button" class="reset-button">X</button>
     <div class="chuck-container">
       <Image
         class="chuck-face"
@@ -28,5 +30,6 @@ import "../styles/index.css";
     </h1>
     <button id="main-button" class="main-button">This is the button</button>
   </div>
-</main>
+  </main>
+</Layout>
 <script is:inline defer type="text/javascript" src="index.js"></script>

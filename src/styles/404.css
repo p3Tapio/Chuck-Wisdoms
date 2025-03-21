@@ -1,0 +1,18 @@
+.error {
+  width: 90%;
+  margin: 10vh auto;
+  height: 80vw;
+  max-height: 400px;
+  max-width: 600px;
+}
+
+.error-header {
+  margin: auto;
+  font-size: 28vw;
+}
+
+@media screen and (min-width: 800px) {
+  .error-header {
+    font-size: 222px;
+  }
+}
