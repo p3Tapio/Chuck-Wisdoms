@@ -2,10 +2,15 @@
   "name": "static-site-deploy",
   "type": "module",
   "scripts": {
-    "dev": "export ENV=dev && npm run serve",
-    "build": "node build",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
     "serve": "node server",
     "test": "export ENV=test && concurrently \"npm run build\" \"npm run serve\" \"node test\""
+  },
+  "dependencies": {
+    "astro": "^5.5.2"
   },
   "devDependencies": {
     "browser-sync": "^3.0.2",
